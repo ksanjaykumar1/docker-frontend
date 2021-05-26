@@ -10,9 +10,9 @@ RUN npm cache clean --force
 # RUN npm config set unsafe-perm true
 
 COPY   . .
-USER root
+# USER root
 # ENV BABEL_DISABLE_CACHE 1
-RUN chown -R node:node node_modules
+RUN chown -R root:node node_modules
 RUN ls -l
 RUN npm run build
 
