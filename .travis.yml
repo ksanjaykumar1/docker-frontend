@@ -6,5 +6,7 @@ services:
 before_install:
   - docker build -t ksanjayk/docker-frontend -f Dockerfile.dev .
 
+
+# The test command will force Test to run in CI-mode, and tests will only run once instead of launching the watcher. , -e CI=true , 
 script:
-  - docker run ksanjayk/docker-frontend npm run test -- --coverage
+  - docker run -e CI=true ksanjayk/docker-frontend npm run test -- --coverage
