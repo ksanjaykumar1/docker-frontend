@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t ksanjayk/docker-frontend -f Dockerfile.dev .
+
+script:
+  - docker run ksanjayk/docker-frontend npm run test -- --coverage
